@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="https://myhub.ia.br/canvas-vendor/tailwind.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETN/PF Marcio - Escola de Treinamento Náutico</title>
+<meta name="description" content="Escola de Treinamento Náutico registrada na Marinha do Brasil. Formação de Arrais-Amador conforme NORMAM-211/DPC e apoio em documentação náutica.">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" type="image/png" href="logo-etnpf-marcio-2018a.png">
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; color:#0a2540; }
+  .btn-cta { background:linear-gradient(135deg,#d4af37,#c9a227); color:#0a2540; font-weight:700; padding:14px 30px; border-radius:8px; text-decoration:none; display:inline-block; transition:all .25s; box-shadow:0 4px 14px rgba(201,162,39,.35); }
+  .btn-cta:hover { background:linear-gradient(135deg,#c9a227,#b08f1f); box-shadow:0 6px 20px rgba(201,162,39,.5); transform:translateY(-2px); }
+  .card-hover { transition: all .35s cubic-bezier(.2,.8,.2,1); }
+  .foto-cover { width:100%; height:100%; object-fit:cover; display:block; }
+  #menuMobile { display:none; }
+  #menuMobile.aberto { display:flex; }
+</style>
+</head>
+<body>
+
+<header class="bg-[#0a2540] text-white shadow-lg relative">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-6">
+    <a href="#" class="flex items-center gap-1">
+      <img src="logo-etnpf-marcio-2018a.png" alt="Logotipo ETN/PF Marcio" style="height:60px;width:auto;">
+      <span class="text-xl md:text-2xl font-bold tracking-wide text-white hidden sm:inline">ETN/PF <span class="text-[#c9a227]">Marcio</span></span>
+    </a>
+
+    <nav class="hidden md:flex gap-10 text-base font-medium">
+      <a href="#cursos" class="hover:text-[#c9a227] transition-colors">Curso Arrais</a>
+      <a href="#documentacao" class="hover:text-[#c9a227] transition-colors">Documentação Náutica</a>
+      <a href="#como-funciona" class="hover:text-[#c9a227] transition-colors">Como Funciona</a>
+      <a href="#sobre" class="hover:text-[#c9a227] transition-colors">Sobre</a>
+      <a href="area-aluno.html" class="hover:text-[#c9a227] transition-colors">Área do Aluno</a>
+      <a href="#contato" class="hover:text-[#c9a227] transition-colors">Contato</a>
+    </nav>
+
+    <button id="btnMenuMobile" aria-label="Abrir menu" aria-expanded="false" class="md:hidden text-white text-3xl focus:outline-none focus:ring-2 focus:ring-[#c9a227] rounded px-2">
+      ☰
+    </button>
+  </div>
+
+  <nav id="menuMobile" class="md:hidden flex-col gap-1 bg-[#0a2540] border-t border-[#13365c] px-6 pb-4">
+    <a href="#cursos" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Curso Arrais</a>
+    <a href="#documentacao" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Documentação Náutica</a>
+    <a href="#como-funciona" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Como Funciona</a>
+    <a href="#sobre" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Sobre</a>
+    <a href="area-aluno.html" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Área do Aluno</a>
+    <a href="#contato" class="block py-3 hover:text-[#c9a227] transition-colors">Contato</a>
+  </nav>
+</header>
+
+<section class="relative overflow-hidden" style="background:radial-gradient(ellipse at top left,#13365c,#0a2540 60%);">
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle,#c9a227 1px,transparent 1px);background-size:28px 28px;"></div>
+  <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
+    <div>
+      <p class="text-[#c9a227] font-semibold mb-3 tracking-widest uppercase text-sm">⚓ Escola registrada na Marinha do Brasil</p>
+      <h1 class="text-white text-4xl md:text-5xl font-bold leading-tight mb-6">Realize o sonho de comandar sua própria embarcação.</h1>
+      <p class="text-[#cfe0f0] text-lg mb-8 leading-relaxed">Conquiste sua Carteira de Arrais-Amador com quem navega pela NORMAM-211/DPC. Formação completa com aulas teóricas, práticas embarcadas, simulados de prova e apoio total em documentação náutica — TIE, CHA, transferência e seguro DPEM.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contato" class="btn-cta text-lg">Quero me Matricular</a>
+        <a href="#documentacao" class="btn-cta text-lg" style="background:transparent;color:#fff;border:2px solid #c9a227;box-shadow:none;">Regularizar Documentação</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-5 h-[500px] w-full">
+      <div class="flex items-center justify-center bg-white/5 backdrop-blur-sm rounded-xl border-2 border-[#c9a227]/60 flex-1 shadow-lg">
+        <img src="logo-etnpf-marcio-2018a.png" alt="Logotipo ETN/PF Marcio" style="height:100%;width:auto;object-fit:contain;">
+      </div>
+      <div class="rounded-xl w-full overflow-hidden shadow-2xl flex-1 border-2 border-[#c9a227]/30">
+        <img src="foto-hero-instrutor.jpg" alt="Instrutor pilotando embarcação de treinamento náutico" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-10 border-b border-gray-100">
+  <div class="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-12 text-center">
+    <div><p class="text-2xl font-bold text-[#0a2540]">ETN/PF</p><p class="text-sm text-gray-500">Registrada na Marinha do Brasil</p></div>
+    <div><p class="text-2xl font-bold text-[#0a2540]">NORMAM-211/DPC</p><p class="text-sm text-gray-500">Conteúdo atualizado conforme norma vigente</p></div>
+    <div><p class="text-2xl font-bold text-[#0a2540]">Teoria + Prática</p><p class="text-sm text-gray-500">Treinamento completo</p></div>
+  </div>
+</section>
+
+<section id="cursos" class="py-24 bg-[#f4f7fa]">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-[#0a2540] mb-2">Curso Arrais-Amador</h2>
+    <p class="text-center text-gray-500 mb-14">Formação completa para condução de embarcações de esporte e recreio na navegação interior</p>
+    <div class="grid md:grid-cols-3 gap-7 max-w-4xl mx-auto">
+
+      <div class="card-hover bg-white rounded-xl shadow-md p-7 border border-gray-100 flex flex-col hover:shadow-2xl hover:-translate-y-3 hover:border-[#c9a227]">
+        <div class="rounded-lg h-36 mb-5 overflow-hidden">
+          <img src="foto-sala-aula-teorica.jpg" alt="Sala de aula teórica da escola náutica" class="foto-cover">
+        </div>
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">Treinamento Teórico</h3>
+        <p class="text-sm text-gray-500 mb-4 flex-grow">Conteúdo completo baseado na NORMAM-211/DPC vigente, com apostila e simulados.</p>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-md p-7 border border-gray-100 flex flex-col hover:shadow-2xl hover:-translate-y-3 hover:border-[#c9a227]">
+        <div class="rounded-lg h-36 mb-5 overflow-hidden">
+          <img src="foto-colete-salva-vidas.jpg" alt="Treinamento prático com colete salva-vidas em embarcação" class="foto-cover">
+        </div>
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">Treinamento Prático</h3>
+        <p class="text-sm text-gray-500 mb-4 flex-grow">Horas práticas embarcadas, com acompanhamento de instrutor credenciado.</p>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-md p-7 border border-gray-100 flex flex-col hover:shadow-2xl hover:-translate-y-3 hover:border-[#c9a227]">
+        <div class="rounded-lg h-36 mb-5 overflow-hidden">
+          <img src="foto-simulados-online.jpg" alt="Interface de simulado online com cronômetro e questões" class="foto-cover">
+        </div>
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">Simulados Online</h3>
+        <p class="text-sm text-gray-500 mb-4 flex-grow">Área exclusiva para aluno matriculado praticar com questões por assunto.</p>
+      </div>
+
+    </div>
+    <div class="text-center mt-12">
+      <a href="#contato" class="btn-cta text-lg">Quero me Matricular no Arrais-Amador</a>
+    </div>
+  </div>
+</section>
+
+<section id="documentacao" class="py-24 bg-white border-t border-gray-100">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-[#0a2540] mb-2">Documentação e Regularização Náutica</h2>
+    <p class="text-center text-gray-500 mb-14">Serviços de apoio para proprietários de embarcações de esporte e recreio</p>
+
+    <div class="rounded-xl overflow-hidden mb-12 h-56 md:h-64 max-w-3xl mx-auto shadow-lg">
+      <img src="foto-documentacao-barco.jpg" alt="Assinatura de documentação náutica a bordo" class="foto-cover">
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-6">
+
+      <div class="card-hover bg-[#f4f7fa] rounded-xl p-7 border border-gray-100 hover:bg-white hover:shadow-xl hover:border-[#c9a227] hover:-translate-y-2">
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">TIE</h3>
+        <p class="text-sm text-gray-500">Inscrição, renovação e transferência do Título de Inscrição da Embarcação.</p>
+      </div>
+
+      <div class="card-hover bg-[#f4f7fa] rounded-xl p-7 border border-gray-100 hover:bg-white hover:shadow-xl hover:border-[#c9a227] hover:-translate-y-2">
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">CHA</h3>
+        <p class="text-sm text-gray-500">Apoio na emissão e renovação da Carteira de Habilitação de Amador.</p>
+      </div>
+
+      <div class="card-hover bg-[#f4f7fa] rounded-xl p-7 border border-gray-100 hover:bg-white hover:shadow-xl hover:border-[#c9a227] hover:-translate-y-2">
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">Seguro DPEM</h3>
+        <p class="text-sm text-gray-500">Orientação sobre a contratação e regularização do seguro obrigatório.</p>
+      </div>
+
+      <div class="card-hover bg-[#f4f7fa] rounded-xl p-7 border border-gray-100 hover:bg-white hover:shadow-xl hover:border-[#c9a227] hover:-translate-y-2">
+        <h3 class="text-lg font-bold text-[#0a2540] mb-2">Transferência</h3>
+        <p class="text-sm text-gray-500">Apoio em processos de transferência de propriedade e de Capitania.</p>
+      </div>
+
+    </div>
+    <div class="text-center mt-12">
+      <a href="#contato" class="btn-cta text-lg">Solicitar Apoio em Documentação</a>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona" class="py-28 relative overflow-hidden" style="background:radial-gradient(ellipse at bottom right,#15345a,#0a2540 65%);">
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <p class="text-[#c9a227] font-semibold text-center uppercase text-sm tracking-widest mb-2">Sua jornada até a CHA</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-16">Como Funciona</h2>
+    <div class="grid md:grid-cols-4 gap-7 relative">
+      <div class="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-[#c9a227] opacity-30" style="margin:0 12%;"></div>
+
+      <div class="card-hover bg-white rounded-xl shadow-xl p-7 text-center relative hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#d4af37] to-[#b08f1f] text-[#0a2540] flex items-center justify-center font-bold text-2xl mx-auto mb-5 shadow-lg border-4 border-white -mt-14 relative z-10">01</div>
+        <div class="text-3xl mb-3">📝</div>
+        <h3 class="font-bold text-[#0a2540] text-lg mb-2">Inscrição</h3>
+        <p class="text-sm text-gray-500">Preencha o formulário ou fale pelo WhatsApp e tire todas as suas dúvidas sem compromisso.</p>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-xl p-7 text-center relative hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#d4af37] to-[#b08f1f] text-[#0a2540] flex items-center justify-center font-bold text-2xl mx-auto mb-5 shadow-lg border-4 border-white -mt-14 relative z-10">02</div>
+        <div class="text-3xl mb-3">⚓</div>
+        <h3 class="font-bold text-[#0a2540] text-lg mb-2">Treinamento</h3>
+        <p class="text-sm text-gray-500">Aulas teóricas e práticas embarcadas, conforme carga horária exigida pela NORMAM-211/DPC.</p>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-xl p-7 text-center relative hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#d4af37] to-[#b08f1f] text-[#0a2540] flex items-center justify-center font-bold text-2xl mx-auto mb-5 shadow-lg border-4 border-white -mt-14 relative z-10">03</div>
+        <div class="text-3xl mb-3">✅</div>
+        <h3 class="font-bold text-[#0a2540] text-lg mb-2">Avaliação</h3>
+        <p class="text-sm text-gray-500">Prova teórica e simulados comentados para garantir sua aprovação com confiança.</p>
+      </div>
+
+      <div class="card-hover bg-white rounded-xl shadow-xl p-7 text-center relative hover:-translate-y-3">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#d4af37] to-[#b08f1f] text-[#0a2540] flex items-center justify-center font-bold text-2xl mx-auto mb-5 shadow-lg border-4 border-white -mt-14 relative z-10">04</div>
+        <div class="text-3xl mb-3">🎓</div>
+        <h3 class="font-bold text-[#0a2540] text-lg mb-2">Certificação</h3>
+        <p class="text-sm text-gray-500">Emissão da documentação necessária para obtenção da sua CHA junto à Capitania.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="py-24 bg-[#0a2540]">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <div class="rounded-xl h-80 overflow-hidden order-2 md:order-1 shadow-2xl border-2 border-[#c9a227]/20">
+      <img src="foto-sobre-escola.jpg" alt="Embarcação de treinamento náutico Luíza II no cais" class="foto-cover">
+    </div>
+    <div class="order-1 md:order-2">
+      <h2 class="text-3xl font-bold text-white mb-5">Sobre a ETN/PF Marcio</h2>
+      <p class="text-[#cfe0f0] mb-4 leading-relaxed">Escola de Treinamento Náutico registrada na Marinha do Brasil, dedicada à formação de condutores de embarcações de esporte e recreio, seguindo rigorosamente a NORMAM-211/DPC vigente.</p>
+      <p class="text-[#cfe0f0] mb-4 leading-relaxed">Nosso compromisso é com a atualização constante do conteúdo normativo e a aprovação segura do nosso aluno.</p>
+      <p class="text-[#cfe0f0] mb-6 leading-relaxed">Atendemos Cananéia, Iguape, Ilha Comprida e todo o Vale do Ribeira, com atendimento próximo e flexível conforme a necessidade do aluno.</p>
+      <a href="#" id="linkCredenciamento" class="inline-block text-sm font-semibold text-[#c9a227] underline hover:text-white transition-colors">Verificar credenciamento oficial na lista da Marinha do Brasil →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="py-24 bg-[#f4f7fa]">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-[#0a2540] mb-2">Fale com o Instrutor</h2>
+    <p class="text-gray-500 mb-10">Preencha seus dados e fale diretamente com a escola pelo WhatsApp</p>
+
+    <form id="leadForm" class="bg-white p-9 rounded-xl shadow-xl text-left space-y-5 border border-gray-100">
+      <div>
+        <label class="text-sm font-semibold text-[#0a2540]">Nome completo</label>
+        <input id="nome" type="text" required class="w-full border border-gray-200 rounded-lg px-4 py-3 mt-1 focus:border-[#c9a227] focus:ring-2 focus:ring-[#c9a227]/30 outline-none transition-all duration-200">
+      </div>
+      <div>
+        <label class="text-sm font-semibold text-[#0a2540]">Telefone / WhatsApp</label>
+        <input id="telefone" type="tel" required class="w-full border border-gray-200 rounded-lg px-4 py-3 mt-1 focus:border-[#c9a227] focus:ring-2 focus:ring-[#c9a227]/30 outline-none transition-all duration-200">
+      </div>
+      <div>
+        <label class="text-sm font-semibold text-[#0a2540]">Tipo de interesse</label>
+        <select id="curso" required class="w-full border border-gray-200 rounded-lg px-4 py-3 mt-1 bg-white focus:border-[#c9a227] focus:ring-2 focus:ring-[#c9a227]/30 outline-none transition-all duration-200">
+          <option value="Curso Arrais-Amador">Curso Arrais-Amador</option>
+          <option value="Documentação Náutica - TIE">Documentação Náutica - TIE</option>
+          <option value="Documentação Náutica - CHA">Documentação Náutica - CHA</option>
+          <option value="Documentação Náutica - Seguro DPEM">Documentação Náutica - Seguro DPEM</option>
+          <option value="Documentação Náutica - Transferência">Documentação Náutica - Transferência</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-cta w-full text-center hover:scale-[1.02] transform transition-all duration-300">Enviar e Falar no WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-[#0a2540] text-[#cfe0f0] py-12">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 text-sm">
+    <div class="flex items-start gap-4">
+      <a href="#"><img src="logo-etnpf-marcio-2018a.png" alt="Logotipo ETN/PF Marcio" style="height:48px;width:auto;"></a>
+      <div>
+        <p class="text-white font-bold mb-2">ETN/PF Marcio</p>
+        <p>Escola de Treinamento Náutico registrada na Marinha do Brasil</p>
+      </div>
+    </div>
+    <div>
+      <p class="text-white font-semibold mb-2">Contato</p>
+      <p>WhatsApp: (13) 99604-7831</p>
+      <p>contato@etnpfmarcio.com.br</p>
+      <p>Rua Antônio Paulino de Almeida, nº 1031 – Acarau – Cananéia/SP, CEP: 11.990-000</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = document.getElementById('nome').value;
+    var telefone = document.getElementById('telefone').value;
+    var curso = document.getElementById('curso').value;
+    var numeroWhats = "5513996047831";
+    var texto = "Olá! Me chamo " + nome + ", telefone " + telefone + ", e tenho interesse no curso de " + curso + ".";
+    var url = "https://wa.me/" + numeroWhats + "?text=" + encodeURIComponent(texto);
+    window.open(url, "_blank");
+  });
+
+  var btnMenu = document.getElementById('btnMenuMobile');
+  var menuMobile = document.getElementById('menuMobile');
+
+  btnMenu.addEventListener('click', function(){
+    var aberto = menuMobile.classList.toggle('aberto');
+    btnMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    btnMenu.textContent = aberto ? '✕' : '☰';
+  });
+
+  menuMobile.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuMobile.classList.remove('aberto');
+      btnMenu.setAttribute('aria-expanded', 'false');
+      btnMenu.textContent = '☰';
+    });
+  });
+</script>
+
+</body>
+</html>
