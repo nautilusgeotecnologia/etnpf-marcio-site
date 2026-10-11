@@ -7,9 +7,98 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: 'Segoe UI', Arial, sans-serif; }
-  .alt-btn.selecionada { background-color: #2563eb; color: white; }
-  .alt-btn.correta { background-color: #16a34a; color: white; }
-  .alt-btn.incorreta { background-color: #dc2626; color: white; }
+
+  .alt-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffffff;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+    transition: all 0.15s ease;
+  }
+
+  .alt-btn:hover {
+    border-color: #93c5fd;
+    background-color: #f0f7ff;
+  }
+
+  .alt-btn:active {
+    transform: scale(0.98);
+  }
+
+  .alt-btn .letra-badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    background-color: #e2e8f0;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.15s ease;
+  }
+
+  .alt-btn.selecionada {
+    background-color: #2563eb;
+    color: #ffffff !important;
+    border-color: #2563eb;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.35);
+  }
+
+  .alt-btn.selecionada .letra-badge {
+    background-color: #ffffff;
+    color: #2563eb;
+  }
+
+  .alt-btn.correta {
+    background-color: #16a34a;
+    color: #ffffff !important;
+    border-color: #16a34a;
+  }
+
+  .alt-btn.correta .letra-badge {
+    background-color: #ffffff;
+    color: #16a34a;
+  }
+
+  .alt-btn.incorreta {
+    background-color: #dc2626;
+    color: #ffffff !important;
+    border-color: #dc2626;
+  }
+
+  .alt-btn.incorreta .letra-badge {
+    background-color: #ffffff;
+    color: #dc2626;
+  }
+
+  .barra-progresso-fundo {
+    width: 100%;
+    height: 6px;
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .barra-progresso-preenchida {
+    height: 100%;
+    background-color: #2563eb;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+  }
+
+  #telaQuestao, #telaResultado, #telaConfig {
+    animation: fadeIn 0.25s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 </head>
 <body class="bg-slate-100 min-h-screen">
@@ -48,6 +137,9 @@
   <!-- TELA DE QUESTÃO -->
   <div id="telaQuestao" class="bg-white rounded-xl shadow p-6 hidden">
     <div class="flex justify-between items-center mb-4">
+<div class="barra-progresso-fundo mb-4">
+  <div id="barraProgresso" class="barra-progresso-preenchida" style="width: 0%;"></div>
+</div>
       <span id="lblProgresso" class="font-semibold text-slate-600"></span>
       <span id="lblCronometro" class="font-mono text-lg text-blue-700">00:00</span>
     </div>
@@ -206,57 +298,45 @@ function renderQuestao() {
   lblAssuntoQuestao.textContent = mapAssunto(questao.assunto) + ' • ' + mapNivel(questao.nivel);
   txtEnunciado.textContent = questao.enunciado;
 
+  const pctProgresso = Math.round(((indiceAtual + 1) / questoesSimulado.length) * 100);
+  const barraProgresso = document.getElementById('barraProgresso');
+  if (barraProgresso) barraProgresso.style.width = pctProgresso + '%';
+
   contAlternativas.innerHTML = '';
 
   const respostaAtual = respostasUsuario[indiceAtual].alternativaEscolhida;
 
   questao.alternativas.forEach((altTexto, idx) => {
-    const letra = String.fromCharCode(65 + idx); // A, B, C, D, E
+    const letra = String.fromCharCode(65 + idx);
 
-    const div = document.createElement('button');
-    div.type = 'button';
-    div.className = 'alt-btn w-full text-left border rounded p-3 hover:bg-slate-50';
-    div.textContent = `${letra}) ${altTexto}`;
-    div.dataset.letra = letra;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'alt-btn w-full text-left rounded-lg p-3 font-medium';
+    btn.dataset.letra = letra;
+
+    const badge = document.createElement('span');
+    badge.className = 'letra-badge';
+    badge.textContent = letra;
+
+    const texto = document.createElement('span');
+    texto.textContent = altTexto;
+
+    btn.appendChild(badge);
+    btn.appendChild(texto);
 
     if (respostaAtual === letra) {
-      div.classList.add('selecionada');
+      btn.classList.add('selecionada');
     }
 
-    div.addEventListener('click', () => selecionarAlternativa(letra));
+    btn.addEventListener('click', () => selecionarAlternativa(letra));
 
-    contAlternativas.appendChild(div);
+    contAlternativas.appendChild(btn);
   });
 
   btnAnterior.disabled = indiceAtual === 0;
   btnAnterior.classList.toggle('opacity-50', indiceAtual === 0);
 
   btnProxima.textContent = indiceAtual === questoesSimulado.length - 1 ? 'Finalizar' : 'Próxima';
-}
-
-function mapAssunto(a) {
-  const mapa = {
-    marinharia: 'Marinharia',
-    navegacao: 'Navegação',
-    ripeam: 'RIPEAM',
-    legislacao: 'Legislação e Segurança'
-  };
-  return mapa[a] || a;
-}
-
-function mapNivel(n) {
-  const mapa = { facil: 'Fácil', medio: 'Médio', dificil: 'Difícil' };
-  return mapa[n] || n;
-}
-
-// ===================== SELEÇÃO DE ALTERNATIVA =====================
-function selecionarAlternativa(letra) {
-  respostasUsuario[indiceAtual].alternativaEscolhida = letra;
-
-  const botoes = contAlternativas.querySelectorAll('.alt-btn');
-  botoes.forEach(b => {
-    b.classList.toggle('selecionada', b.dataset.letra === letra);
-  });
 }
 
 // ===================== NAVEGAÇÃO =====================
@@ -1370,3 +1450,4 @@ bancoQuestoes.push(
 
 </body>
 </html>
+
