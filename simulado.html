@@ -100,8 +100,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
   #menuMobile { display:none; }
-#menuMobile.aberto { display:flex; }
-
+  #menuMobile.aberto { display:flex; }
 </style>
 </head>
 <body class="bg-slate-100 min-h-screen">
@@ -239,6 +238,7 @@ let indiceAtual = 0;
 let respostasUsuario = [];   // { questaoId, alternativaEscolhida, correta }
 let cronometroInterval = null;
 let segundosDecorridos = 0;
+
 // ===================== MENU MOBILE (CABEÇALHO) =====================
 const btnMenuMobile = document.getElementById('btnMenuMobile');
 const menuMobile = document.getElementById('menuMobile');
@@ -286,6 +286,29 @@ function embaralhar(array) {
   return copia;
 }
 
+// ===================== CORREÇÃO DO BUG "SEMPRE B" =====================
+// Embaralha as alternativas de uma questão e recalcula a letra do gabarito
+// na nova posição, evitando que a resposta correta fique sempre fixa na
+// mesma letra entre todas as questões do banco.
+function embaralharAlternativasDaQuestao(questaoOriginal) {
+  const letras = ['A', 'B', 'C', 'D', 'E'];
+  const indiceCorretoOriginal = letras.indexOf(questaoOriginal.gabarito);
+
+  const itens = questaoOriginal.alternativas.map((texto, idx) => ({
+    texto,
+    eraCorreta: idx === indiceCorretoOriginal
+  }));
+
+  const itensEmbaralhados = embaralhar(itens);
+  const novoIndiceCorreto = itensEmbaralhados.findIndex(item => item.eraCorreta);
+
+  return {
+    ...questaoOriginal,
+    alternativas: itensEmbaralhados.map(item => item.texto),
+    gabarito: letras[novoIndiceCorreto]
+  };
+}
+
 function formatarTempo(segundos) {
   const m = Math.floor(segundos / 60).toString().padStart(2, '0');
   const s = (segundos % 60).toString().padStart(2, '0');
@@ -304,6 +327,7 @@ function iniciarCronometro() {
 function pararCronometro() {
   clearInterval(cronometroInterval);
 }
+
 // ===================== FUNÇÕES AUXILIARES DE MAPEAMENTO =====================
 function mapAssunto(assunto) {
   const mapa = {
@@ -347,7 +371,10 @@ btnIniciar.addEventListener('click', () => {
   }
 
   filtradas = embaralhar(filtradas);
-  questoesSimulado = filtradas.slice(0, Math.min(quantidade, filtradas.length));
+  const selecionadas = filtradas.slice(0, Math.min(quantidade, filtradas.length));
+
+  // Embaralha as alternativas (e recalcula o gabarito) de cada questão escolhida
+  questoesSimulado = selecionadas.map(q => embaralharAlternativasDaQuestao(q));
 
   respostasUsuario = questoesSimulado.map(q => ({
     questaoId: q.id,
@@ -549,6 +576,7 @@ btnCopiarResultado.addEventListener('click', () => {
     alert('Resultado copiado! Cole no chat.');
   });
 });
+
 // ===================== BANCO: MARINHARIA =====================
 bancoQuestoes.push(
   {
@@ -792,6 +820,7 @@ bancoQuestoes.push(
     gabarito: 'B'
   }
 );
+
 // ===================== BANCO: NAVEGAÇÃO =====================
 bancoQuestoes.push(
   {
@@ -1035,6 +1064,7 @@ bancoQuestoes.push(
     gabarito: 'B'
   }
 );
+
 // ===================== BANCO: RIPEAM =====================
 bancoQuestoes.push(
   {
@@ -1278,6 +1308,7 @@ bancoQuestoes.push(
     gabarito: 'B'
   }
 );
+
 // ===================== BANCO: LEGISLAÇÃO E SEGURANÇA =====================
 bancoQuestoes.push(
   {
@@ -1521,7 +1552,8 @@ bancoQuestoes.push(
     gabarito: 'B'
   }
 );
-  // ===================== BOTÕES VOLTAR AO INÍCIO =====================
+
+// ===================== BOTÕES VOLTAR AO INÍCIO =====================
 function voltarInicio() {
   if (cronometroInterval) {
     const confirmar = confirm('Tem certeza que deseja sair? O progresso deste simulado será perdido.');
@@ -1540,4 +1572,3 @@ document.getElementById('btnInicioResultado').addEventListener('click', voltarIn
 
 </body>
 </html>
-
