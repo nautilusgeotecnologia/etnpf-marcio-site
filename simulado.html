@@ -255,6 +255,30 @@ function iniciarCronometro() {
 function pararCronometro() {
   clearInterval(cronometroInterval);
 }
+// ===================== FUNÇÕES AUXILIARES DE MAPEAMENTO =====================
+function mapAssunto(assunto) {
+  const mapa = {
+    marinharia: 'Marinharia',
+    navegacao: 'Navegação',
+    ripeam: 'RIPEAM',
+    legislacao: 'Legislação e Segurança'
+  };
+  return mapa[assunto] || assunto;
+}
+
+function mapNivel(nivel) {
+  const mapa = {
+    facil: 'Fácil',
+    medio: 'Médio',
+    dificil: 'Difícil'
+  };
+  return mapa[nivel] || nivel;
+}
+
+function selecionarAlternativa(letra) {
+  respostasUsuario[indiceAtual].alternativaEscolhida = letra;
+  renderQuestao();
+}
 
 // ===================== INÍCIO DO SIMULADO =====================
 btnIniciar.addEventListener('click', () => {
