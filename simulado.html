@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simulado Arrais-Amador</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://myhub.ia.br/canvas-vendor/tailwind.js"></script>
 <style>
   body { font-family: 'Segoe UI', Arial, sans-serif; }
 
@@ -99,9 +99,42 @@
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  #menuMobile { display:none; }
+#menuMobile.aberto { display:flex; }
+
 </style>
 </head>
 <body class="bg-slate-100 min-h-screen">
+<header class="bg-[#0a2540] text-white shadow-lg relative">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-6">
+    <a href="/" class="flex items-center gap-1">
+      <img src="/logo-etnpf-marcio-2018a.png" alt="Logotipo ETN/PF Marcio" style="height:60px;width:auto;">
+      <span class="text-xl md:text-2xl font-bold tracking-wide text-white hidden sm:inline">ETN/PF <span class="text-[#c9a227]">Marcio</span></span>
+    </a>
+
+    <nav class="hidden md:flex gap-10 text-base font-medium">
+      <a href="/#cursos" class="hover:text-[#c9a227] transition-colors">Curso Arrais</a>
+      <a href="/#documentacao" class="hover:text-[#c9a227] transition-colors">Documentação Náutica</a>
+      <a href="/#como-funciona" class="hover:text-[#c9a227] transition-colors">Como Funciona</a>
+      <a href="/#sobre" class="hover:text-[#c9a227] transition-colors">Sobre</a>
+      <a href="/area-aluno.html" class="hover:text-[#c9a227] transition-colors">Área do Aluno</a>
+      <a href="/#contato" class="hover:text-[#c9a227] transition-colors">Contato</a>
+    </nav>
+
+    <button id="btnMenuMobile" aria-label="Abrir menu" aria-expanded="false" class="md:hidden text-white text-3xl focus:outline-none focus:ring-2 focus:ring-[#c9a227] rounded px-2">
+      ☰
+    </button>
+  </div>
+
+  <nav id="menuMobile" class="md:hidden flex-col gap-1 bg-[#0a2540] border-t border-[#13365c] px-6 pb-4">
+    <a href="/#cursos" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Curso Arrais</a>
+    <a href="/#documentacao" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Documentação Náutica</a>
+    <a href="/#como-funciona" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Como Funciona</a>
+    <a href="/#sobre" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Sobre</a>
+    <a href="/area-aluno.html" class="block py-3 border-b border-[#13365c] hover:text-[#c9a227] transition-colors">Área do Aluno</a>
+    <a href="/#contato" class="block py-3 hover:text-[#c9a227] transition-colors">Contato</a>
+  </nav>
+</header>
 
 <div id="app" class="max-w-3xl mx-auto p-4">
 
@@ -206,6 +239,16 @@ let indiceAtual = 0;
 let respostasUsuario = [];   // { questaoId, alternativaEscolhida, correta }
 let cronometroInterval = null;
 let segundosDecorridos = 0;
+// ===================== MENU MOBILE (CABEÇALHO) =====================
+const btnMenuMobile = document.getElementById('btnMenuMobile');
+const menuMobile = document.getElementById('menuMobile');
+if (btnMenuMobile && menuMobile) {
+  btnMenuMobile.addEventListener('click', () => {
+    menuMobile.classList.toggle('aberto');
+    const expandido = menuMobile.classList.contains('aberto');
+    btnMenuMobile.setAttribute('aria-expanded', expandido);
+  });
+}
 
 // ===================== ELEMENTOS =====================
 const telaConfig = document.getElementById('telaConfig');
