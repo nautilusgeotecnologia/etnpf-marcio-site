@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Aluno - ETN/PF Marcio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0a1f33;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background-color: #0d2b47;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #1a73e8;
+  }
+  header img {
+    max-height: 70px;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  .card {
+    background-color: #112c47;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    text-align: center;
+  }
+  .card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  .card p {
+    font-size: 14px;
+    color: #cfd8e3;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #cfd8e3;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #2a4a6b;
+    background-color: #0a1f33;
+    color: #ffffff;
+    font-size: 14px;
+  }
+  .btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .btn-login:hover {
+    background-color: #1558b0;
+  }
+  .aviso {
+    margin-top: 25px;
+    background-color: #1a2f45;
+    border-left: 4px solid #f5a623;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #e8d9b5;
+    text-align: left;
+  }
+  .voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: #8fb8ff;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .voltar:hover {
+    text-decoration: underline;
+  }
+  footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 12px;
+    color: #7a8ca3;
+    background-color: #0d2b47;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo-etnpf-marcio-2018.png" alt="ETN/PF Marcio">
+</header>
+
+<main>
+  <div class="card">
+    <h1>Área do Aluno</h1>
+    <p>Acesse para visualizar seus simulados, materiais de apoio e acompanhamento de desempenho.</p>
+
+    <form id="formLogin" onsubmit="event.preventDefault(); alert('Login em desenvolvimento. Em breve essa área estará ativa.');">
+      <div class="form-group">
+        <label for="email">E-mail ou CPF</label>
+        <input type="text" id="email" name="email" placeholder="Digite seu e-mail ou CPF" required>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+      </div>
+      <button type="submit" class="btn-login">Entrar</button>
+    </form>
+
+    <div class="aviso">
+      ⚠️ Esta área está em fase de implementação. O acesso completo aos simulados e ao painel de desempenho estará disponível em breve. Em caso de dúvidas, fale com a secretaria da escola.
+    </div>
+
+    <a href="index.html" class="voltar">← Voltar para o site principal</a>
+  </div>
+</main>
+
+<footer>
+  © 2026 ETN/PF Marcio - Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
