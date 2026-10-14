@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script src="https://myhub.ia.br/canvas-vendor/tailwind.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Área do Aluno - ETN/PF Marcio</title>
@@ -24,10 +24,7 @@
   .msg-sucesso { background:#f0fdf4; border-left:4px solid #16a34a; color:#166534; padding:10px 14px; border-radius:8px; font-size:14px; margin-bottom:16px; }
 </style>
 </head>
-  <p style="font-size:13px; text-align:center; margin-top:16px;">
-  <a href="/politica-privacidade.html">Política de Privacidade</a>
-</p>
-<body class="bg-[#f4f6f8]">
+  <body class="bg-[#f4f6f8]">
 
 <header class="bg-[#0a2540] text-white shadow-lg relative">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-6">
@@ -88,7 +85,11 @@
         <input type="password" id="senhaLogin" required
           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#c9a227] text-[#0a2540]">
       </div>
-      <button type="submit" id="btnLogin" class="btn-cta">Entrar</button>
+           <label style="display:flex; align-items:flex-start; gap:8px; font-size:13px; margin-bottom:16px; color:#4b5563;">
+        <input type="checkbox" id="aceitePrivacidade" required style="margin-top:3px;">
+        <span>Li e aceito a <a href="/politica-privacidade.html" target="_blank" style="color:#c9a227;">Política de Privacidade</a>.</span>
+      </label>
+      <button type="submit" id="btnCadastro" class="btn-cta">Criar conta</button>
     </form>
 
     <!-- FORM CADASTRO -->
@@ -130,8 +131,10 @@
 
 <footer class="bg-[#0a2540] text-white text-center py-6 text-sm">
   © 2026 ETN/PF Marcio - Todos os direitos reservados.
+  <p style="font-size:13px; margin-top:8px;">
+    <a href="/politica-privacidade.html" style="color:#c9a227;">Política de Privacidade</a>
+  </p>
 </footer>
-
 <script>
   // Menu mobile
   const btnMenu = document.getElementById('btnMenuMobile');
